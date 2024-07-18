@@ -1,0 +1,4 @@
+npm init --> to get package.json file
+npm i -g typescript --> to install typescript globally
+tsc --init --> to get tsconfig.json file
+npm i --save-dev @types/express @types/node typescript --> to add dev dependencies for typescript
