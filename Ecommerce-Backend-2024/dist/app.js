@@ -8,6 +8,7 @@ import morgan from "morgan";
 import userRoute from "./routes/userRoutes.js";
 import productRoute from "./routes/productRoutes.js";
 import orderRoute from "./routes/orderRoutes.js";
+import paymentRoute from "./routes/paymentRoutes.js";
 config({ path: "src/.env" });
 const port = process.env.PORT || 4000;
 connectDB(process.env.MONGO_URI || "");
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/product", productRoute);
 app.use("/api/v1/order", orderRoute);
+app.use("/api/v1/payment", paymentRoute);
 app.use("/uploads", express.static("uploads"));
 app.use(errorMiddleware);
 app.listen(port, () => {
