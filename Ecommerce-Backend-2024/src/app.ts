@@ -11,13 +11,17 @@ import productRoute from "./routes/productRoutes.js";
 import orderRoute from "./routes/orderRoutes.js";
 import paymentRoute from "./routes/paymentRoutes.js";
 import dashboardRoute from "./routes/dashboardRoutes.js";
+import Stripe from "stripe";
 
 config({ path: "src/.env" });
 
 const port = process.env.PORT || 4000;
+const mongoURI = process.env.MONGO_URI || "";
+const stripeKey = process.env.STRIPE_KEY || "";
 
-connectDB(process.env.MONGO_URI || "");
+connectDB(mongoURI || "");
 
+export const stripe = new Stripe(stripeKey);
 export const myCache = new NodeCache();
 
 const app = express();
