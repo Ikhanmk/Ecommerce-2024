@@ -283,6 +283,7 @@ export const getLineCharts = TryCatch(async (req, res, next) => {
             User.find(baseQuery).select("createdAt"),
             Order.find(baseQuery).select(["createdAt", "discount", "total"]),
         ]);
+        console.log(products, users, orders);
         const productCounts = getChartData({ length: 12, today, docArr: products });
         const usersCounts = getChartData({ length: 12, today, docArr: users });
         const discount = getChartData({
